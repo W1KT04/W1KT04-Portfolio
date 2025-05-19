@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>W1KT04 Portfolio</title>
+    <meta name="description" content="Terminal-style 3D artist portfolio">
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+    <div class="cyber-grid"></div>
+
+    <nav class="terminal-nav">
+        <ul>
+            <li><a href="#about" class="nav-link">></span> About</a></li>
+            <li><a href="#projects" class="nav-link">></span> Projects</a></li>
+            <li><a href="#skills" class="nav-link">></span> Skills</a></li>
+            <li><a href="#experience" class="nav-link">></span> Experience</a></li>
+            <li><a href="#system" class="nav-link">></span> System</a></li>
+            <li><a href="#contact" class="nav-link">></span> Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container" id="about">
+            <div class="terminal-header">
+                <div class="prompt">user@w1kt04:~$ <span class="cursor"></span></div>
+                <div class="console-output">
+                    <div class="output-line success">Welcome to W1KT04 Portfolio</div>
+                    <div class="output-line">Initializing...</div>
+                    <div class="output-line success">System ready</div>
+                </div>
+            </div>
+
+        <!-- About Section -->
+        <div class="command">
+            <div class="command-title">about</div>
+            <div class="command-content">
+                <p>3D Generalist with over 3 years experience in:</p>
+                <ul>
+                    <li>- Setup realistic lighting in scene.</li>
+                    <li>- Texture UV</li>
+                    <li>- Modeling low-poly models and high-poly models.</li>
+                </ul>
+                <p>Specializing in Blender workflow with Unity integration.</p>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="command" id="projects">
+            <div class="command-title">ls ./projects</div>
+            <div class="grid">
+
+                <div class="project-card">
+                    
+                    <div class="project-image-container">
+                        <img src="Ocean_Office_Park.png" 
+                            alt="Ocean Office Park Preview" 
+                            class="project-image"
+                            loading="lazy">
+                        <div class="image-caption">Ocean_Office_Park.jpg</div>
+                    </div>
+                    
+                    <h3>Ocean Office Park</h3>
+                    <div class="tags">
+                        <span class="tag">Environment</span>
+                        <span class="tag">Cycles</span>
+                    </div>
+                    <p>
+                        Real place in Poland (Ocean Office Park) with realistic lighting.
+                    </p>
+                    <div class="output-line">Status: <span class="success">completed</span></div>
+                </div>
+
+                <div class="project-card">
+
+                    <div class="project-image-container">
+                        <img src="Space.png" 
+                            alt="Ocean Office Park Preview" 
+                            class="project-image"
+                            loading="lazy">
+                        <div class="image-caption">Space.jpg</div>
+                    </div>
+                    
+                    <h3>Car in Space</h3>
+                    <div class="tags">
+                        <span class="tag">Environment</span>
+                        <span class="tag">Cycles</span>
+                        <span class="tag">HDRI</span>
+                    </div>
+                    <p>
+                        Car in space with HDRI texture.
+                    </p>
+                    <div class="output-line">Status: <span class="success">completed</span></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="command" id="skills">
+            <div class="command-title">skills --detail</div>
+            <div class="command-content">
+                <div class="skill-meter">
+                    <div class="skill-name">
+                        <span>Blender</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="meter">
+                        <div class="meter-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-meter">
+                    <div class="skill-name">
+                        <span>Armor Paint</span>
+                        <span>62%</span>
+                    </div>
+                    <div class="meter">
+                        <div class="meter-fill" style="width: 62%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-meter">
+                    <div class="skill-name">
+                        <span>Unity</span>
+                        <span>99%</span>
+                    </div>
+                    <div class="meter">
+                        <div class="meter-fill" style="width: 99%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Timeline -->
+        <div class="command" id="experience">
+            <div class="command-title">history --experience</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - Present</div>
+                    <h3>Senior 3D Artist | Quantum Studios</h3>
+                    <p>Lead environment artist. Responsible for:</p>
+                    <ul>
+                        <li>- Material library development</li>
+                        <li>- Lighting key scenes</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - 2025</div>
+                    <h3>3D Generalist | Neon Vector</h3>
+                    <p>Created assets for various mobile and VR projects:</p>
+                    <ul>
+                        <li>- LOD models</li>
+                        <li>- Developed shader systems</li>
+                        <li>- Implemented assets in Unity/Unreal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Info -->
+        <div class="command" id="system">
+            <div class="command-title">system --info</div>
+            <div class="grid">
+                <div>
+                    <h3>Workstation Specs</h3>
+                    <ul>
+                        <li>CPU: I5-12600KF</li>
+                        <li>GPU: RX 7700 XT</li>
+                        <li>RAM: 32GB DDR4</li>
+                        <li>Storage: 2TB NVMe</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Software Stack</h3>
+                    <ul>
+                        <li>Blender 4.4+</li>
+                        <li>Unity</li>
+                        <li>Armor Paint</li>
+                        <li>DaVinci Resolve</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <form id="contact" class="command">
+            <div class="form-group">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Your Email</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Your Email" required />
+            </div>
+            <div class="form-group">
+                <label for="message" class="form-label">Your Message</label>
+                <textarea id="message" name="message" class="form-input" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send</button>
+            <div id="consoleOutput"></div>
+        </form>
+
+    </div>
+
+    <footer class="terminal-footer">
+        <div class="footer-content">
+            <div>
+                <p>&copy; 2025 W1KT04_PORTFOLIO. All rights reserved.</p>
+            </div>
+            <span class="prompt">w1kt04@social:</span>
+            <a href="https://www.instagram.com/_.w1kt04._/" target="_blank" class="instagram-link">
+                [ Instagram ] 
+                <span class="cursor"></span>
+            </a>
+        </div>
+    </footer>
+    <!-- Dodajemy bibliotekę cząsteczek -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        const prompts = [
+            "about",
+            "ls ./projects",
+            "skills --detail",
+            "history --experience",
+            "contact --submit",
+            "system --info"
+        ];
+
+        let currentPrompt = 0;
+        const promptElement = document.querySelector('.prompt');
+        const cursor = document.querySelector('.cursor');
+
+        function typePrompt() {
+            if (currentPrompt < prompts.length) {
+                let text = prompts[currentPrompt];
+                let i = 0;
+                
+                promptElement.textContent = "user@w1kt04-portfolio:~$ ";
+                cursor.style.display = 'none';
+                
+                function typing() {
+                    if (i < text.length) {
+                        promptElement.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typing, 50);
+                    } else {
+                        cursor.style.display = 'inline-block';
+                        currentPrompt++;
+                        setTimeout(typePrompt, 2000);
+                    }
+                }
+                
+                typing();
+            } else {
+                currentPrompt = 0;
+                setTimeout(typePrompt, 1000);
+            }
+        }
+
+        // Start typing effect after page loads
+        window.addEventListener('load', () => {
+            setTimeout(typePrompt, 1500);
+        });
+
+        // Add more console output lines periodically
+        const consoleMessages = [
+            "Rendering preview...",
+            "Compiling shaders...",
+            "Optimizing geometry...",
+            "Baking lightmaps...",
+            "Texture streaming initialized"
+        ];
+
+        setInterval(() => {
+            const randomMessage = consoleMessages[Math.floor(Math.random() * consoleMessages.length)];
+            const newLine = document.createElement('div');
+            newLine.className = 'output-line';
+            newLine.textContent = randomMessage;
+            
+        }, 8000);
+
+        // Interaktywny terminal
+        const liveTerminal = document.querySelector('.live-terminal');
+        const liveCommand = document.getElementById('live-command');
+        const liveOutput = document.getElementById('live-output');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.command');
+            
+            function updateActiveNav() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    if(window.scrollY >= sectionTop) {
+                        currentSection = section.id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if(link.getAttribute('href').includes(currentSection)) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav(); // Inicjalizacja
+
+            // Obsługa kliknięć dla mobilnego menu
+            const mobileMenuButton = document.createElement('div');
+            mobileMenuButton.className = 'mobile-menu-btn';
+            document.body.appendChild(mobileMenuButton);
+
+            mobileMenuButton.addEventListener('click', () => {
+                document.querySelector('.terminal-nav').classList.toggle('mobile-visible');
+            });
+        });
+
+        const commands = {
+            help: () => "Available commands: about, projects, skills, contact, clear",
+            about: () => "3D Generalist specializing in Blender and nUnity workflows",
+            projects: () => "Loading projects...",
+            skills: () => "Blender: ★★★★★\nUnity: ★★★★★",
+            clear: () => { liveOutput.innerHTML = ''; return ""; }
+        };
+
+        // Nowa animacja ładowania
+        const loadingPhrases = [
+            "Initializing neural network...",
+            "Booting up GPU clusters...",
+            "Rendering initial interface...",
+            "Connecting to render farm..."
+        ];
+
+        function showLoadingSequence() {
+            let index = 0;
+            const loader = setInterval(() => {
+                if(index < loadingPhrases.length) {
+                    const line = document.createElement('div');
+                    line.className = 'output-line';
+                    line.textContent = loadingPhrases[index];
+                    index++;
+                } else {
+                    clearInterval(loader);
+                }
+            }, 800);
+        }
+
+        
+        // Aktualizacja obsługi zdarzeń dla urządzeń mobilnych
+        document.addEventListener('DOMContentLoaded', function() {
+            // Zapobieganie zoomowaniu przy podwójnym kliknięciu
+            let lastTap = 0;
+            document.addEventListener('touchend', function(e) {
+                const currentTime = new Date().getTime();
+                const tapLength = currentTime - lastTap;
+                if (tapLength < 500 && tapLength > 0) {
+                    e.preventDefault();
+                }
+                lastTap = currentTime;
+            });
+
+            // Lepsza obsługa formularza na mobile
+            const inputs = document.querySelectorAll('.form-input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    window.scrollTo(0, input.offsetTop - 100);
+                });
+            });
+        });
+
+        window.addEventListener('load', showLoadingSequence);
+
+        const images = document.querySelectorAll('.project-image');
+        
+        document.querySelectorAll('.project-image').forEach(img => {
+            img.addEventListener('click', () => {
+                // Create overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'image-viewer-overlay';
+                
+                // Create viewer
+                const viewer = document.createElement('div');
+                viewer.className = 'image-viewer';
+                viewer.innerHTML = `
+                    <div class="viewer-header">
+                        <span class="prompt">IMAGE_VIEWER [${img.parentNode.querySelector('.image-caption').textContent}]</span>
+                        <button class="close-btn">CLOSE [X]</button>
+                    </div>
+                    <img src="${img.src}" alt="Fullscreen preview">
+                `;
+
+                // Add elements to DOM
+                document.body.appendChild(overlay);
+                document.body.appendChild(viewer);
+
+                // Close functionality
+                const close = () => {
+                    overlay.remove();
+                    viewer.remove();
+                };
+
+                overlay.addEventListener('click', close);
+                viewer.querySelector('.close-btn').addEventListener('click', close);
+                
+                // Add keyboard close
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') close();
+                });
+            });
+        });
+
+        // Add image viewer styles
+        const imageViewerStyles = `
+            /* Add this (or merge into your existing image‑viewer styles) */
+            .image-viewer {
+                position: fixed;           /* Take it out of the document flow */
+                top: 50%;                  /* Push down half the viewport */
+                left: 50%;                 /* Push right half the viewport */
+                transform: translate(-50%, -50%); /* Shift back by half its own size */
+                z-index: 9999;             /* Sit on top of virtually everything */
+                background: var(--terminal);
+                border: 2px solid var(--accent);
+                padding: 1rem;
+                max-width: 90vw;
+                max-height: 90vh;
+                box-shadow: 0 0 20px rgba(218,0,255,0.5);
+            }
+
+            /* Optional backdrop to dim the page */
+            .image-viewer-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 9998;  /* Just below the viewer itself */
+            }
+
+            .image-viewer img {
+                max-width: 100%;
+                max-height: 80vh;
+                object-fit: contain;
+            }
+            
+            .viewer-header {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 1rem;
+            }
+            
+            .close-btn {
+                background: transparent;
+                border: none;
+                color: var(--accent);
+                cursor: pointer;
+                font-family: inherit;
+            }
+        `;
+        
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init('i7UL2S1FZ8NIPqo63');
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            const consoleOutput = document.getElementById('consoleOutput');
+
+            // Sprawdź, czy elementy istnieją
+            if (!contactForm || !consoleOutput) {
+                console.error("Brak formularza lub konsoli output!");
+                return;
+            }
+
+            function validateFormData(formData) {
+                const data = Object.fromEntries(formData.entries());
+                if (!data.name || !data.email || !data.message) {
+                    alert('All fields are required.');
+                    return false;
+                }
+                return true;
+            }
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(contactForm);
+
+                if (!validateFormData(formData)) return;
+
+                emailjs.sendForm('service_i92g0xu', 'template_v7i2az4', contactForm)
+                    .then(() => {
+                        const newLine = document.createElement('div');
+                        newLine.className = 'output-line success';
+                        newLine.textContent = "Message sent successfully!";
+                        consoleOutput.appendChild(newLine);
+                        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+                        contactForm.reset();
+                    })
+                    .catch((error) => {
+                        const newLine = document.createElement('div');
+                        newLine.className = 'output-line error';
+                        newLine.textContent = "Error sending message: " + error.text;
+                        consoleOutput.appendChild(newLine);
+                        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+                        contactForm.reset();
+                    });
+            });
+        });
+    </script>
+</body>
+</html>
