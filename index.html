@@ -18,7 +18,7 @@
             <li><a href="#skills" class="nav-link">></span> Skills</a></li>
             <li><a href="#experience" class="nav-link">></span> Experience</a></li>
             <li><a href="#system" class="nav-link">></span> System</a></li>
-            <li><a href="#contact" class="nav-link">></span> Contact</a></li>
+            <li><a href="#contact-form" class="nav-link">></span> Contact</a></li>
         </ul>
     </nav>
     
@@ -138,26 +138,23 @@
             <div class="command-title">history --experience</div>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">2024-2025</div>
-                    <h3>Senior 3D Artist</h3>
+                    <div class="timeline-date">2025 - Present</div>
+                    <h3>Senior 3D Artist | Quantum Studios</h3>
                     <p>Lead environment artist. Responsible for:</p>
                     <ul>
                         <li>- Material library development</li>
                         <li>- Lighting key scenes</li>
-                        <li>- LOD models</li>
-                        <li>- Developed shader systems</li>
-                        <li>- Implemented assets in Unity</li>
                     </ul>
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-date">2021 - 2023</div>
-                    <h3>3D Generalist</h3>
+                    <div class="timeline-date">2021 - 2025</div>
+                    <h3>3D Generalist | Neon Vector</h3>
                     <p>Created assets for various mobile and VR projects:</p>
                     <ul>
                         <li>- LOD models</li>
                         <li>- Developed shader systems</li>
-                        <li>- Implemented assets in Unity</li>
+                        <li>- Implemented assets in Unity/Unreal</li>
                     </ul>
                 </div>
             </div>
@@ -190,7 +187,7 @@
         </div>
 
         <!-- Contact Section -->
-        <form id="contact" class="command">
+        <form id="contact-form" class="command">
             <div class="form-group">
                 <label for="name" class="form-label">Your Name</label>
                 <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required />
@@ -472,60 +469,76 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-    // Zmień inicjalizację na najnowszą wersję
-    (function() {
-        emailjs.init({
-            publicKey: "p-dgQ7T-Ohy-QldSI", // Upewnij się że klucz jest aktualny
-            blockHeadless: true,
-            limitRate: {
-                id: 'portfolio',
-                throttle: 5000
-            }
-        });
-    })();
+    emailjs.init('p-dgQ7T-Ohy-QldSI');
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const contactForm = document.getElementById('contact'); // Zmiana ID formularza
-        const consoleOutput = document.getElementById('consoleOutput');
+    document.addEventListener('DOMContentLoaded', () => {
+        // Lepsze wyszukiwanie elementów
+        const contactForm = document.querySelector('form.command#contact-form');
+        const consoleOutput = document.querySelector('#consoleOutput');
 
-        function validateFormData(formData) {
-            const data = Object.fromEntries(formData.entries());
-            if (!data.name || !data.email || !data.message) {
-                showOutput("All fields are required!", "error");
-                return false;
+        // Rozszerzone sprawdzanie błędów
+        if (!contactForm) {
+            console.error('Formularz kontaktowy nie został znaleziony! Sprawdź czy element istnieje i ma odpowiedni ID.');
+            return;
+        }
+        
+        if (!consoleOutput) {
+            console.error('Konsola wyjściowa nie została znaleziona! Sprawdź czy element o ID "consoleOutput" istnieje.');
+            return;
+        }
+
+        // Rozszerzona walidacja
+        const validateForm = (formData) => {
+            const errors = [];
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!formData.get('name')?.trim()) errors.push('Imię jest wymagane');
+            if (!formData.get('email')?.trim()) {
+                errors.push('Email jest wymagany');
+            } else if (!emailPattern.test(formData.get('email'))) {
+                errors.push('Nieprawidłowy format email');
             }
-            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
-                showOutput("Invalid email format!", "error");
+            if (!formData.get('message')?.trim()) errors.push('Wiadomość jest wymagana');
+
+            if (errors.length > 0) {
+                alert(`Błędy:\n${errors.join('\n')}`);
                 return false;
             }
             return true;
-        }
+        };
 
-        function showOutput(message, type = "success") {
-            const newLine = document.createElement('div');
-            newLine.className = `output-line ${type}`;
-            newLine.textContent = message;
-            consoleOutput.appendChild(newLine);
-            consoleOutput.scrollTop = consoleOutput.scrollHeight;
-        }
-
-        contactForm.addEventListener('submit', (e) => {
+        // Obsługa submita z async/await
+        const handleSubmit = async (e) => {
             e.preventDefault();
             const formData = new FormData(contactForm);
 
-            if (!validateFormData(formData)) return;
+            if (!validateForm(formData)) return;
 
-            showOutput("Sending message...", "info");
+            try {
+                const response = await emailjs.sendForm(
+                    'service_i92g0xu',
+                    'template_v7i2az4',
+                    contactForm
+                );
+                
+                consoleOutput.insertAdjacentHTML('beforeend', `
+                    <div class="output-line success">
+                        ✔️ Wiadomość wysłana pomyślnie
+                    </div>
+                `);
+            } catch (error) {
+                consoleOutput.insertAdjacentHTML('beforeend', `
+                    <div class="output-line error">
+                        ❌ Błąd wysyłania: ${error.text || 'Nieznany błąd'}
+                    </div>
+                `);
+            }
+            
+            contactForm.reset();
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        };
 
-            emailjs.sendForm('service_i92g0xu', 'template_v7i2az4', contactForm)
-                .then(() => {
-                    showOutput("Message sent successfully!");
-                    contactForm.reset();
-                })
-                .catch((error) => {
-                    showOutput(`Error: ${error.text || "Failed to send message"}`, "error");
-                });
-        });
+        contactForm.addEventListener('submit', handleSubmit);
     });
 </script>
 </body>
