@@ -13,24 +13,24 @@
 
     <nav class="terminal-nav">
         <ul>
-            <li><a href="#about" class="nav-link">></span> About</a></li>
-            <li><a href="#projects" class="nav-link">></span> Projects</a></li>
-            <li><a href="#skills" class="nav-link">></span> Skills</a></li>
-            <li><a href="#experience" class="nav-link">></span> Experience</a></li>
-            <li><a href="#system" class="nav-link">></span> System</a></li>
-            <li><a href="#contact-form" class="nav-link">></span> Contact</a></li>
+            <li><a href="#about" class="nav-link">> About</a></li>
+            <li><a href="#projects" class="nav-link">> Projects</a></li>
+            <li><a href="#skills" class="nav-link">> Skills</a></li>
+            <li><a href="#experience" class="nav-link">> Experience</a></li>
+            <li><a href="#system" class="nav-link">> System</a></li>
+            <li><a href="#contact-form" class="nav-link">> Contact</a></li>
         </ul>
     </nav>
     
     <div class="container" id="about">
-            <div class="terminal-header">
-                <div class="prompt">user@w1kt04:~$ <span class="cursor"></span></div>
-                <div class="console-output">
-                    <div class="output-line success">Welcome to W1KT04 Portfolio</div>
-                    <div class="output-line">Initializing...</div>
-                    <div class="output-line success">System ready</div>
-                </div>
+        <div class="terminal-header">
+            <div class="prompt">user@w1kt04:~$ <span class="cursor"></span></div>
+            <div class="console-output">
+                <div class="output-line success">Welcome to W1KT04 Portfolio</div>
+                <div class="output-line">Initializing...</div>
+                <div class="output-line success">System ready</div>
             </div>
+        </div>
 
         <!-- About Section -->
         <div class="command">
@@ -50,50 +50,34 @@
         <div class="command" id="projects">
             <div class="command-title">ls ./projects</div>
             <div class="grid">
-
                 <div class="project-card">
-                    
                     <div class="project-image-container">
-                        <img src="Ocean_Office_Park.png" 
-                            alt="Ocean Office Park Preview" 
-                            class="project-image"
-                            loading="lazy">
+                        <img src="Ocean_Office_Park.png" alt="Ocean Office Park Preview" class="project-image" loading="lazy">
                         <div class="image-caption">Ocean_Office_Park.jpg</div>
                     </div>
-                    
                     <h3>Ocean Office Park</h3>
                     <div class="tags">
                         <span class="tag">Environment</span>
                         <span class="tag">Cycles</span>
                     </div>
-                    <p>
-                        Real place in Poland (Ocean Office Park) with realistic lighting.
-                    </p>
+                    <p>Real place in Poland (Ocean Office Park) with realistic lighting.</p>
                     <div class="output-line">Status: <span class="success">completed</span></div>
                 </div>
 
                 <div class="project-card">
-
                     <div class="project-image-container">
-                        <img src="Space.png" 
-                            alt="Ocean Office Park Preview" 
-                            class="project-image"
-                            loading="lazy">
+                        <img src="Space.png" alt="Ocean Office Park Preview" class="project-image" loading="lazy">
                         <div class="image-caption">Space.jpg</div>
                     </div>
-                    
                     <h3>Car in Space</h3>
                     <div class="tags">
                         <span class="tag">Environment</span>
                         <span class="tag">Cycles</span>
                         <span class="tag">HDRI</span>
                     </div>
-                    <p>
-                        Car in space with HDRI texture.
-                    </p>
+                    <p>Car in space with HDRI texture.</p>
                     <div class="output-line">Status: <span class="success">completed</span></div>
                 </div>
-
             </div>
         </div>
 
@@ -190,11 +174,11 @@
         <form id="contact-form" class="command">
             <div class="form-group">
                 <label for="name" class="form-label">Your Name</label>
-                <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required />
+                <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required>
             </div>
             <div class="form-group">
                 <label for="email" class="form-label">Your Email</label>
-                <input type="email" id="email" name="email" class="form-input" placeholder="Your Email" required />
+                <input type="email" id="email" name="email" class="form-input" placeholder="Your Email" required>
             </div>
             <div class="form-group">
                 <label for="message" class="form-label">Your Message</label>
@@ -203,7 +187,6 @@
             <button type="submit" class="submit-btn">Send</button>
             <div id="consoleOutput"></div>
         </form>
-
     </div>
 
     <footer class="terminal-footer">
@@ -212,15 +195,15 @@
                 <p>&copy; 2025 W1KT04_PORTFOLIO. All rights reserved.</p>
             </div>
             <span class="prompt">w1kt04@social:</span>
-            <a href="https://www.instagram.com/_.w1kt04._/" target="_blank" class="instagram-link">
-                [ Instagram ] 
-                <span class="cursor"></span>
-            </a>
+            <a href="https://www.instagram.com/_.w1kt04._/" target="_blank" class="instagram-link">[ Instagram ] <span class="cursor"></span></a>
         </div>
     </footer>
-    <!-- Dodajemy bibliotekę cząsteczek -->
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <script>
+        // Animacja promptu
         const prompts = [
             "about",
             "ls ./projects",
@@ -238,10 +221,9 @@
             if (currentPrompt < prompts.length) {
                 let text = prompts[currentPrompt];
                 let i = 0;
-                
                 promptElement.textContent = "user@w1kt04-portfolio:~$ ";
                 cursor.style.display = 'none';
-                
+
                 function typing() {
                     if (i < text.length) {
                         promptElement.textContent += text.charAt(i);
@@ -253,7 +235,6 @@
                         setTimeout(typePrompt, 2000);
                     }
                 }
-                
                 typing();
             } else {
                 currentPrompt = 0;
@@ -261,12 +242,9 @@
             }
         }
 
-        // Start typing effect after page loads
-        window.addEventListener('load', () => {
-            setTimeout(typePrompt, 1500);
-        });
+        window.addEventListener('load', () => setTimeout(typePrompt, 1500));
 
-        // Add more console output lines periodically
+        // Losowe komunikaty w konsoli
         const consoleMessages = [
             "Rendering preview...",
             "Compiling shaders...",
@@ -280,14 +258,10 @@
             const newLine = document.createElement('div');
             newLine.className = 'output-line';
             newLine.textContent = randomMessage;
-            
+            document.querySelector('.console-output').appendChild(newLine);
         }, 8000);
 
-        // Interaktywny terminal
-        const liveTerminal = document.querySelector('.live-terminal');
-        const liveCommand = document.getElementById('live-command');
-        const liveOutput = document.getElementById('live-output');
-        
+        // Obsługa nawigacji
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.command');
@@ -311,9 +285,9 @@
             }
 
             window.addEventListener('scroll', updateActiveNav);
-            updateActiveNav(); // Inicjalizacja
+            updateActiveNav();
 
-            // Obsługa kliknięć dla mobilnego menu
+            // Przycisk mobilnego menu
             const mobileMenuButton = document.createElement('div');
             mobileMenuButton.className = 'mobile-menu-btn';
             document.body.appendChild(mobileMenuButton);
@@ -323,70 +297,12 @@
             });
         });
 
-        const commands = {
-            help: () => "Available commands: about, projects, skills, contact, clear",
-            about: () => "3D Generalist specializing in Blender and nUnity workflows",
-            projects: () => "Loading projects...",
-            skills: () => "Blender: ★★★★★\nUnity: ★★★★★",
-            clear: () => { liveOutput.innerHTML = ''; return ""; }
-        };
-
-        // Nowa animacja ładowania
-        const loadingPhrases = [
-            "Initializing neural network...",
-            "Booting up GPU clusters...",
-            "Rendering initial interface...",
-            "Connecting to render farm..."
-        ];
-
-        function showLoadingSequence() {
-            let index = 0;
-            const loader = setInterval(() => {
-                if(index < loadingPhrases.length) {
-                    const line = document.createElement('div');
-                    line.className = 'output-line';
-                    line.textContent = loadingPhrases[index];
-                    index++;
-                } else {
-                    clearInterval(loader);
-                }
-            }, 800);
-        }
-
-        
-        // Aktualizacja obsługi zdarzeń dla urządzeń mobilnych
-        document.addEventListener('DOMContentLoaded', function() {
-            // Zapobieganie zoomowaniu przy podwójnym kliknięciu
-            let lastTap = 0;
-            document.addEventListener('touchend', function(e) {
-                const currentTime = new Date().getTime();
-                const tapLength = currentTime - lastTap;
-                if (tapLength < 500 && tapLength > 0) {
-                    e.preventDefault();
-                }
-                lastTap = currentTime;
-            });
-
-            // Lepsza obsługa formularza na mobile
-            const inputs = document.querySelectorAll('.form-input');
-            inputs.forEach(input => {
-                input.addEventListener('focus', () => {
-                    window.scrollTo(0, input.offsetTop - 100);
-                });
-            });
-        });
-
-        window.addEventListener('load', showLoadingSequence);
-
-        const images = document.querySelectorAll('.project-image');
-        
+        // Podgląd obrazów
         document.querySelectorAll('.project-image').forEach(img => {
             img.addEventListener('click', () => {
-                // Create overlay
                 const overlay = document.createElement('div');
                 overlay.className = 'image-viewer-overlay';
                 
-                // Create viewer
                 const viewer = document.createElement('div');
                 viewer.className = 'image-viewer';
                 viewer.innerHTML = `
@@ -397,11 +313,9 @@
                     <img src="${img.src}" alt="Fullscreen preview">
                 `;
 
-                // Add elements to DOM
                 document.body.appendChild(overlay);
                 document.body.appendChild(viewer);
 
-                // Close functionality
                 const close = () => {
                     overlay.remove();
                     viewer.remove();
@@ -409,23 +323,21 @@
 
                 overlay.addEventListener('click', close);
                 viewer.querySelector('.close-btn').addEventListener('click', close);
-                
-                // Add keyboard close
                 document.addEventListener('keydown', (e) => {
                     if (e.key === 'Escape') close();
                 });
             });
         });
 
-        // Add image viewer styles
-        const imageViewerStyles = `
-            /* Add this (or merge into your existing image‑viewer styles) */
+        // Style podglądu obrazów
+        const imageViewerStyles = document.createElement('style');
+        imageViewerStyles.textContent = `
             .image-viewer {
-                position: fixed;           /* Take it out of the document flow */
-                top: 50%;                  /* Push down half the viewport */
-                left: 50%;                 /* Push right half the viewport */
-                transform: translate(-50%, -50%); /* Shift back by half its own size */
-                z-index: 9999;             /* Sit on top of virtually everything */
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
                 background: var(--terminal);
                 border: 2px solid var(--accent);
                 padding: 1rem;
@@ -433,30 +345,25 @@
                 max-height: 90vh;
                 box-shadow: 0 0 20px rgba(218,0,255,0.5);
             }
-
-            /* Optional backdrop to dim the page */
-            .image-viewer-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 9998;  /* Just below the viewer itself */
+            .image-viewer-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.7);
+                z-index: 9998;
             }
-
             .image-viewer img {
                 max-width: 100%;
                 max-height: 80vh;
                 object-fit: contain;
             }
-            
             .viewer-header {
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: 1rem;
             }
-            
             .close-btn {
                 background: transparent;
                 border: none;
@@ -465,81 +372,90 @@
                 font-family: inherit;
             }
         `;
-        
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-    emailjs.init('p-dgQ7T-Ohy-QldSI');
+        document.head.appendChild(imageViewerStyles);
 
-    document.addEventListener('DOMContentLoaded', () => {
-        // Lepsze wyszukiwanie elementów
-        const contactForm = document.querySelector('form.command#contact-form');
-        const consoleOutput = document.querySelector('#consoleOutput');
+        // Inicjalizacja EmailJS
+        emailjs.init('p-dgQ7T-Ohy-QldSI');
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.querySelector('form.command#contact-form');
+            const consoleOutput = document.querySelector('#consoleOutput');
 
-        // Rozszerzone sprawdzanie błędów
-        if (!contactForm) {
-            console.error('Formularz kontaktowy nie został znaleziony! Sprawdź czy element istnieje i ma odpowiedni ID.');
-            return;
-        }
-        
-        if (!consoleOutput) {
-            console.error('Konsola wyjściowa nie została znaleziona! Sprawdź czy element o ID "consoleOutput" istnieje.');
-            return;
-        }
+            // Dodaj styl dla animacji
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeOut {
+                    from { opacity: 1; transform: translateY(0); }
+                    to { opacity: 0; transform: translateY(-20px); }
+                }
+                .fade-out {
+                    animation: fadeOut 1s ease forwards;
+                }
+            `;
+            document.head.appendChild(style);
 
-        // Rozszerzona walidacja
-        const validateForm = (formData) => {
-            const errors = [];
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const validateForm = (formData) => {
+                const errors = [];
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!formData.get('name')?.trim()) errors.push('Imię jest wymagane');
+                if (!formData.get('email')?.trim()) {
+                    errors.push('Email jest wymagany');
+                } else if (!emailPattern.test(formData.get('email'))) {
+                    errors.push('Nieprawidłowy format email');
+                }
+                if (!formData.get('message')?.trim()) errors.push('Wiadomość jest wymagana');
+                if (errors.length > 0) {
+                    alert(`Błędy:\n${errors.join('\n')}`);
+                    return false;
+                }
+                return true;
+            };
 
-            if (!formData.get('name')?.trim()) errors.push('Imię jest wymagane');
-            if (!formData.get('email')?.trim()) {
-                errors.push('Email jest wymagany');
-            } else if (!emailPattern.test(formData.get('email'))) {
-                errors.push('Nieprawidłowy format email');
-            }
-            if (!formData.get('message')?.trim()) errors.push('Wiadomość jest wymagana');
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                const formData = new FormData(contactForm);
+                if (!validateForm(formData)) return;
 
-            if (errors.length > 0) {
-                alert(`Błędy:\n${errors.join('\n')}`);
-                return false;
-            }
-            return true;
-        };
+                try {
+                    await emailjs.sendForm(
+                        'service_ey4r4z9',
+                        'template_v7i2az4',
+                        contactForm
+                    );
+                    
+                    const newLine = document.createElement('div');
+                    newLine.className = 'output-line success';
+                    newLine.textContent = '✔️ Wiadomość wysłana pomyślnie';
+                    consoleOutput.appendChild(newLine);
 
-        // Obsługa submita z async/await
-        const handleSubmit = async (e) => {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
+                    // Automatyczne znikanie po 5 sekundach
+                    setTimeout(() => {
+                        newLine.classList.add('fade-out');
+                        newLine.addEventListener('animationend', () => {
+                            newLine.remove();
+                        });
+                    }, 3000);
 
-            if (!validateForm(formData)) return;
+                } catch (error) {
+                    const newLine = document.createElement('div');
+                    newLine.className = 'output-line error';
+                    newLine.textContent = `❌ Błąd wysyłania: ${error.text || 'Nieznany błąd'}`;
+                    consoleOutput.appendChild(newLine);
 
-            try {
-                const response = await emailjs.sendForm(
-                    'service_i92g0xu',
-                    'template_v7i2az4',
-                    contactForm
-                );
+                    // Automatyczne znikanie po 5 sekundach
+                    setTimeout(() => {
+                        newLine.classList.add('fade-out');
+                        newLine.addEventListener('animationend', () => {
+                            newLine.remove();
+                        });
+                    }, 3000);
+                }
                 
-                consoleOutput.insertAdjacentHTML('beforeend', `
-                    <div class="output-line success">
-                        ✔️ Wiadomość wysłana pomyślnie
-                    </div>
-                `);
-            } catch (error) {
-                consoleOutput.insertAdjacentHTML('beforeend', `
-                    <div class="output-line error">
-                        ❌ Błąd wysyłania: ${error.text || 'Nieznany błąd'}
-                    </div>
-                `);
-            }
-            
-            contactForm.reset();
-            consoleOutput.scrollTop = consoleOutput.scrollHeight;
-        };
+                contactForm.reset();
+                consoleOutput.scrollTop = consoleOutput.scrollHeight;
+            };
 
-        contactForm.addEventListener('submit', handleSubmit);
-    });
-</script>
+            contactForm.addEventListener('submit', handleSubmit);
+        });
+    </script>
 </body>
 </html>
