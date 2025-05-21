@@ -471,53 +471,62 @@
         
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        emailjs.init('i7UL2S1FZ8NIPqo63');
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contact-form');
-            const consoleOutput = document.getElementById('consoleOutput');
-
-            // Sprawdź, czy elementy istnieją
-            if (!contactForm || !consoleOutput) {
-                console.error("Brak formularza lub konsoli output!");
-                return;
+<script>
+    // Zmień inicjalizację na najnowszą wersję
+    (function() {
+        emailjs.init({
+            publicKey: "i7UL2S1FZ8NIPqo63", // Upewnij się że klucz jest aktualny
+            blockHeadless: true,
+            limitRate: {
+                id: 'portfolio',
+                throttle: 5000
             }
-
-            function validateFormData(formData) {
-                const data = Object.fromEntries(formData.entries());
-                if (!data.name || !data.email || !data.message) {
-                    alert('All fields are required.');
-                    return false;
-                }
-                return true;
-            }
-
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const formData = new FormData(contactForm);
-
-                if (!validateFormData(formData)) return;
-
-                emailjs.sendForm('service_i92g0xu', 'template_v7i2az4', contactForm)
-                    .then(() => {
-                        const newLine = document.createElement('div');
-                        newLine.className = 'output-line success';
-                        newLine.textContent = "Message sent successfully!";
-                        consoleOutput.appendChild(newLine);
-                        consoleOutput.scrollTop = consoleOutput.scrollHeight;
-                        contactForm.reset();
-                    })
-                    .catch((error) => {
-                        const newLine = document.createElement('div');
-                        newLine.className = 'output-line error';
-                        newLine.textContent = "Error sending message: " + error.text;
-                        consoleOutput.appendChild(newLine);
-                        consoleOutput.scrollTop = consoleOutput.scrollHeight;
-                        contactForm.reset();
-                    });
-            });
         });
-    </script>
+    })();
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contact'); // Zmiana ID formularza
+        const consoleOutput = document.getElementById('consoleOutput');
+
+        function validateFormData(formData) {
+            const data = Object.fromEntries(formData.entries());
+            if (!data.name || !data.email || !data.message) {
+                showOutput("All fields are required!", "error");
+                return false;
+            }
+            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
+                showOutput("Invalid email format!", "error");
+                return false;
+            }
+            return true;
+        }
+
+        function showOutput(message, type = "success") {
+            const newLine = document.createElement('div');
+            newLine.className = `output-line ${type}`;
+            newLine.textContent = message;
+            consoleOutput.appendChild(newLine);
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+
+            if (!validateFormData(formData)) return;
+
+            showOutput("Sending message...", "info");
+
+            emailjs.sendForm('service_i92g0xu', 'template_v7i2az4', contactForm)
+                .then(() => {
+                    showOutput("Message sent successfully!");
+                    contactForm.reset();
+                })
+                .catch((error) => {
+                    showOutput(`Error: ${error.text || "Failed to send message"}`, "error");
+                });
+        });
+    });
+</script>
 </body>
 </html>
